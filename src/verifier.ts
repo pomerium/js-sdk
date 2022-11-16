@@ -1,4 +1,4 @@
-import { getClientJwt, parseJWT, verifyPomeriumJWT } from './utils';
+import { getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from './utils';
 import * as jose from 'jose';
 
 export interface verifierConfig {
@@ -13,6 +13,7 @@ export class PomeriumVerifier {
   public expirationBuffer: number; //doesn't seem like our jwts have the expires part only issued at
   public firstUse: boolean;
   public jwtData: jose.JWTPayload;
+  public verifiedJwtData: jose.JWTPayload;
 
   constructor({ issuer = '', audience = [], expirationBuffer = 0 }: verifierConfig) {
     this.issuer = issuer;
@@ -20,6 +21,7 @@ export class PomeriumVerifier {
     this.expirationBuffer = expirationBuffer;
     this.firstUse = true;
     this.jwtData = {};
+    this.verifiedJwtData = {};
   }
 
   async verifyBrowserUser() {
@@ -27,7 +29,7 @@ export class PomeriumVerifier {
     return this.verifyJwt(jwt);
   }
 
-  verifyJwt(jwt: string) {
+  async verifyJwt(jwt: string) {
     this.jwtData = parseJWT(jwt);
 
     if (this.firstUse) {
@@ -38,11 +40,16 @@ export class PomeriumVerifier {
     if (this.jwtData?.iss !== this.issuer) {
       throw new Error('JWT was not issued by the correct authority: ' + this.issuer);
     }
-    if (!this.audience.some((item) => this.audToArray(this.jwtData?.aud || []).includes(item))) {
+    if (!this.audience.some((item) => this.audToArray(this.jwtData?.aud || []).indexOf(item) > -1)) {
       throw new Error('The audience did not match expected values: ' + this.audience.join(', '));
     }
 
-    return verifyPomeriumJWT(jwt, this.withHttps(this.issuer), this.issuer, this.audience);
+    const verified = await verifyPomeriumJWT(jwt, withHttps(this.issuer), this.issuer, this.audience);
+    this.verifiedJwtData = verified.payload;
+    if (!this.isLoggedIn()){
+      throw new Error('The jwt is expired!');
+    }
+    return verified;
   }
 
   tofu() {
@@ -58,5 +65,11 @@ export class PomeriumVerifier {
     return Array.isArray(aud) ? aud : [aud];
   }
 
-  withHttps = (url: string) => (!/^https?:\/\//i.test(url) ? `https://${url}` : url);
+  isLoggedIn() {
+    const exp = this?.verifiedJwtData?.exp;
+    if (!exp) {
+      return false;
+    }
+    return exp < (Date.now() + this.expirationBuffer)
+  }
 }
