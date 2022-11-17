@@ -1,0 +1,12 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "integration test for js-sdk",
+  "main": "index.js",
+  "author": "Nathan Hayfield",
+  "license": "MIT",
+  "private": null,
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
