@@ -39,3 +39,5 @@ In node you will want to verify the X-Pomerium-Jwt-Assertion header:
 ```
 jwtVerifier.verifyJwt(jwt).then((r) => console.log(r));
 ```
+
+See the /examples directory for Express and React samples.
