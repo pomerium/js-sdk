@@ -25,7 +25,7 @@ export const verifyPomeriumJWT = async (
 ) => {
   const data = await getJWKsData(authenticateBaseUrl);
   const JWKS = jose.createLocalJWKSet(data);
-  return await jose.jwtVerify(jwt, JWKS, { issuer, audience });
+  return jose.jwtVerify(jwt, JWKS, { issuer, audience });
 };
 
 export const withHttps = (url: string) => (!/^https?:\/\//i.test(url) ? `https://${url}` : url);
