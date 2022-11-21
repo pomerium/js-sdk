@@ -41,3 +41,6 @@ jwtVerifier.verifyJwt(jwt).then((r) => console.log(r));
 ```
 
 See the /examples directory for Express and React samples.
+
+Using the verifier class is the easiest way to verify your JWT. However the class itself uses the functions
+in util.js which are also exported. One useful function there is the logout one which will log you out from the browser.
