@@ -1,2 +1,2 @@
-export { verifyPomeriumJWT, parseJWT, getClientJwt, getJWKsData } from './utils.js';
+export { verifyPomeriumJWT, parseJWT, getClientJwt, getJWKsData, signOut, withHttps } from './utils.js';
 export { PomeriumVerifier } from './verifier.js';

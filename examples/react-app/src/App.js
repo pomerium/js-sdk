@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PomeriumVerifier } from '@pomerium/pomerium-js-sdk';
+import { PomeriumVerifier, signOut } from '@pomerium/pomerium-js-sdk';
 
 function App() {
 
@@ -17,8 +17,11 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div style={{margin: '20px'}}>
       <pre>{JSON.stringify(jwt, null, 2)}</pre>
+      <div style={{marginTop: '20px'}}>
+        <button onClick={() => signOut('https://www.pomerium.io')} type="button">Sign Out Test</button>
+      </div>
     </div>
   );
 }
