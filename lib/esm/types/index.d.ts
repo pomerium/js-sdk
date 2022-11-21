@@ -1,3 +1,3 @@
-export { verifyPomeriumJWT, parseJWT, getClientJwt, getJWKsData } from './utils';
-export { PomeriumVerifier } from './verifier';
+export { verifyPomeriumJWT, parseJWT, getClientJwt, getJWKsData } from './utils.js';
+export { PomeriumVerifier } from './verifier.js';
 //# sourceMappingURL=index.d.ts.map
