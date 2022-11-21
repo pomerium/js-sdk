@@ -33,8 +33,7 @@ export const withHttps = (url: string) => (!/^https?:\/\//i.test(url) ? `https:/
 export const signOut = (redirectUrl?: string) => {
   let location = window.location.origin + '/.pomerium/sign_out';
   if (redirectUrl) {
-    location += '?pomerium_redirect_uri=' + redirectUrl
+    location += '?pomerium_redirect_uri=' + encodeURIComponent(redirectUrl);
   }
-  console.log(location);
   window.location.href = location;
 }
