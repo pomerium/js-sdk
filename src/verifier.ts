@@ -1,4 +1,4 @@
-import { getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from './utils';
+import { getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from './utils.js';
 import * as jose from 'jose';
 
 export interface verifierConfig {
