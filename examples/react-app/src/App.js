@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PomeriumVerifier, signOut } from '@pomerium/pomerium-js-sdk';
+import { PomeriumVerifier, signOut } from '@pomerium/js-sdk';
 
 function App() {
 

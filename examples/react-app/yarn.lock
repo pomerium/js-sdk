@@ -1572,6 +1572,13 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@pomerium/js-sdk@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pomerium/js-sdk/-/js-sdk-1.0.0.tgz#6f90ef763d8bd6193183180d476aee63587be3ff"
+  integrity sha512-XcAgU4KssZdBZ3byfWOIGQrF6jtHW7S/BpJRpnB5gnchYjSlsJrrrLDqr4JM1T6q1qC/L7KUnqKTXbsYMGjCMA==
+  dependencies:
+    jose "^4.10.4"
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz#04bc0608f4aa4b2e4b1aebf284344d0f68fda283"
@@ -5792,6 +5799,11 @@ jest@^27.4.3:
     "@jest/core" "^27.5.1"
     import-local "^3.0.2"
     jest-cli "^27.5.1"
+
+jose@^4.10.4:
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-4.11.1.tgz#8f7443549befe5bddcf4bae664a9cbc1a62da4fa"
+  integrity sha512-YRv4Tk/Wlug8qicwqFNFVEZSdbROCHRAC6qu/i0dyNKr5JQdoa2pIGoS04lLO/jXQX7Z9omoNewYIVIxqZBd9Q==
 
 js-sdsl@^4.1.4:
   version "4.1.5"
