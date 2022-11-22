@@ -1,5 +1,5 @@
 const express = require("express");
-const { PomeriumVerifier } = require('../../lib/cjs/verifier');
+const { PomeriumVerifier } = require('@pomerium/js-sdk');
 const app = express();
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //just for dev

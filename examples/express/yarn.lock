@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@pomerium/js-sdk@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pomerium/js-sdk/-/js-sdk-1.0.0.tgz#6f90ef763d8bd6193183180d476aee63587be3ff"
+  integrity sha512-XcAgU4KssZdBZ3byfWOIGQrF6jtHW7S/BpJRpnB5gnchYjSlsJrrrLDqr4JM1T6q1qC/L7KUnqKTXbsYMGjCMA==
+  dependencies:
+    jose "^4.10.4"
+
 accepts@~1.3.8:
   version "1.3.8"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.8.tgz#0bf0be125b67014adcb0b0921e62db7bffe16b2e"
@@ -218,6 +225,11 @@ ipaddr.js@1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
   integrity sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
+
+jose@^4.10.4:
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-4.11.1.tgz#8f7443549befe5bddcf4bae664a9cbc1a62da4fa"
+  integrity sha512-YRv4Tk/Wlug8qicwqFNFVEZSdbROCHRAC6qu/i0dyNKr5JQdoa2pIGoS04lLO/jXQX7Z9omoNewYIVIxqZBd9Q==
 
 media-typer@0.3.0:
   version "0.3.0"

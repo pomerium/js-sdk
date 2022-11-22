@@ -1,5 +1,5 @@
 {
-  "name": "@pomerium/pomerium-js-sdk",
+  "name": "@pomerium/js-sdk",
   "version": "1.0.0",
   "description": "Verify and Parse Pomerium JWTs",
   "exports": {
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pomerium/pomerium-js-sdk.git"
+    "url": "https://github.com/pomerium/js-sdk.git"
   },
   "keywords": [
     "zero trust",
