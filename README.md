@@ -8,11 +8,11 @@ Basic Usage:
 
 ```
 const jwtVerifier = new PomeriumVerifier({
-    issuer = 'myauthenticate.com', 
-    audience = [
+    issuer: 'myauthenticate.com', 
+    audience: [
       'mydomain.com'
     ], 
-    expirationBuffer = 20
+    expirationBuffer: 20
 });
 ```
 The parameters are optional. Issuer and Audience can be trusted on first use from parsing the JWT. 
