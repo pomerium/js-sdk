@@ -10,7 +10,7 @@ Run the express server from this directory using Node 18 or later:
 
 Then in you Pomerium Config or the Enterprise Console add a route similar to this:
 ```
-- from: https://express.localhost.pomerium.io:4443
+- from: https://express.localhost.pomerium.io
   to: http://localhost:3010
   pass_identity_headers: true
   allowed_domains:
@@ -20,7 +20,7 @@ Then in you Pomerium Config or the Enterprise Console add a route similar to thi
 
 Navigate in your browser to:
 ```
-https://express.localhost.pomerium.io:4443/tofu
+https://express.localhost.pomerium.io/tofu
 ```
 
 You should see the output of your verified JWT or an error will be thrown if something is off.
