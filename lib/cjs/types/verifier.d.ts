@@ -12,8 +12,8 @@ export declare class PomeriumVerifier {
     jwtData: jose.JWTPayload;
     verifiedJwtData: jose.JWTPayload;
     constructor({ issuer, audience, expirationBuffer }: verifierConfig);
-    verifyBrowserUser(): Promise<jose.JWTVerifyResult & jose.ResolvedKey>;
-    verifyJwt(jwt: string): Promise<jose.JWTVerifyResult & jose.ResolvedKey>;
+    verifyBrowserUser(): Promise<jose.JWTVerifyResult<jose.JWTPayload> & jose.ResolvedKey<jose.KeyLike>>;
+    verifyJwt(jwt: string): Promise<jose.JWTVerifyResult<jose.JWTPayload> & jose.ResolvedKey<jose.KeyLike>>;
     tofu(): void;
     audToArray(aud: string | string[]): string[];
     isLoggedIn(): boolean;
