@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@pomerium/js-sdk@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@pomerium/js-sdk/-/js-sdk-1.0.1.tgz#9fbd9ea5dc55e94d6683e15a6c0459311974cf82"
-  integrity sha512-AxxCUcHiUdXJFpG/Hq1sxDNupZBM2nrYLT+/7jOIyhPsF1qCuhfyYY9IkZFPh0H6iiV+iwrv2O6pczKk1b837w==
+"@pomerium/js-sdk@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@pomerium/js-sdk/-/js-sdk-1.0.2.tgz#226994b6e8f64acd8ed235ba080620ce2c375149"
+  integrity sha512-81uLI9nmgXuR0NCkJ5cU/wepxogiQall4Yl5DtBzqfVcIBIhMRb8dIKLL3BQPNeBryR9ttMpIcqtWSlj/uRHbw==
   dependencies:
     jose "^4.10.4"
 
