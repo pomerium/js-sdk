@@ -5,15 +5,16 @@ const app = express();
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //just for dev
 
 app.get("/tofu", (request, response) => {
-  const jwtVerifier = new PomeriumVerifier({});
-  jwtVerifier.verifyJwt(request.get('X-Pomerium-Jwt-Assertion')).then(r => response.send(r))
+  const jwtVerifier = new PomeriumVerifier({expirationBuffer: 1000});
+  jwtVerifier.verifyJwt(request.get('X-Pomerium-Jwt-Assertion') || '').then(r => response.send(r))
 });
 
 app.get("/wrong-audience", (request, response) => {
   const jwtVerifier = new PomeriumVerifier({
     audience: [
       'correct-audience.com'
-    ]
+    ],
+    expirationBuffer: 1000
   });
   jwtVerifier.verifyJwt(request.get('X-Pomerium-Jwt-Assertion'))
     .then(r => response.send(r))
@@ -22,7 +23,8 @@ app.get("/wrong-audience", (request, response) => {
 
 app.get("/wrong-issuer", (request, response) => {
   const jwtVerifier = new PomeriumVerifier({
-    issuer: 'correct-issuer.com'
+    issuer: 'correct-issuer.com',
+    expirationBuffer: 1000
   });
   jwtVerifier.verifyJwt(request.get('X-Pomerium-Jwt-Assertion'))
     .then(r => response.send(r))

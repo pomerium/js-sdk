@@ -10,7 +10,7 @@ Run the React App from this directory using Node 18 or later:
 
 Then in you Pomerium Config or the Enterprise Console add a route similar to this:
 ```
-- from: https://react.localhost.pomerium.io:4443
+- from: https://react.localhost.pomerium.io
   to: http://localhost:3000
   pass_identity_headers: true
   allowed_domains:
@@ -20,7 +20,7 @@ Then in you Pomerium Config or the Enterprise Console add a route similar to thi
 
 Navigate in your browser to:
 ```
-https://react.localhost.pomerium.io:4443
+https://react.localhost.pomerium.io
 ```
 
 You should see the output of your verified JWT or an error in the console if something is off.
