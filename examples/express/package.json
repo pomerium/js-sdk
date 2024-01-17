@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": null,
   "dependencies": {
-    "@pomerium/js-sdk": "^1.0.0",
+    "@pomerium/js-sdk": "^1.0.3",
     "express": "^4.18.2"
   }
 }
