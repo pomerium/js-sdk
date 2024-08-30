@@ -1,14 +1,5 @@
-import { getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from './utils.js';
+import { getBrowserUser, getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from './utils.js';
 import * as jose from 'jose';
-
-export interface userInfo {
-  email?: string;
-  name?: string;
-  groups?: string[];
-  /** user ID */
-  user?: string;
-  [claim: string]: unknown;
-}
 
 export interface verifierConfig {
   issuer?: string;
@@ -31,10 +22,6 @@ export class PomeriumVerifier {
     this.firstUse = true;
     this.jwtData = {};
     this.verifiedJwtData = {};
-  }
-
-  getBrowserUser(): Promise<userInfo> {
-    return fetch(window.location.origin + '/.pomerium/user').then((r) => r.json());
   }
 
   /**
