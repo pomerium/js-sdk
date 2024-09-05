@@ -6,6 +6,7 @@ function App() {
   const [userInfo, setUserInfo] = useState('');
 
   useEffect(() => {
+    // Note: this requires Pomerium v0.27 or later.
     getBrowserUser()
       .then(u => setUserInfo(u))
       .catch(e => console.log(e));
