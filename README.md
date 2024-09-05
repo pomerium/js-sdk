@@ -23,7 +23,7 @@ may have differing server times. It defaults to 0.
 For browsers: 
 
 ```
-jwtVerifier.verifyBrowserUser().then((r) => console.log(r));
+getBrowserUser().then((r) => console.log(r));
 ```
 
 In node you will want to verify the X-Pomerium-Jwt-Assertion header:
