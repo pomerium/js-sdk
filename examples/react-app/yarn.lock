@@ -1651,10 +1651,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@pomerium/js-sdk@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@pomerium/js-sdk/-/js-sdk-1.0.3.tgz#4a897c0067d876abba2cfe03a60c7ea7369a5a26"
-  integrity sha512-fy2+ezT6n7lvAkseAchDkeptcdkJqYl+bvUMk4caHrhH4UsniAi8C9dID7ucqh1o1OeadxKxG0n2zSpJRedIag==
+"@pomerium/js-sdk@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@pomerium/js-sdk/-/js-sdk-1.1.0.tgz#75e12aba42bbd327279eefe0e972ab322ec6153a"
+  integrity sha512-fz6rzaeIjRgOKqB8XoNnDpjfGUaaNl6MwWq15ms4msGowkrsZyX3qk+r85r3QsfC29YAVGER2UdsHGNdNNn1Fg==
   dependencies:
     jose "^5.2.0"
 
