@@ -1,4 +1,4 @@
-import { getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from './utils.js';
+import { getBrowserUser, getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from './utils.js';
 import * as jose from 'jose';
 
 export interface verifierConfig {
@@ -24,6 +24,10 @@ export class PomeriumVerifier {
     this.verifiedJwtData = {};
   }
 
+  /**
+   * @deprecated Only supported by Pomerium v0.26 and older. Newer deployments
+   * should use {@link getBrowserUser} instead.
+   */
   async verifyBrowserUser() {
     const jwt = await getClientJwt();
     return this.verifyJwt(jwt);

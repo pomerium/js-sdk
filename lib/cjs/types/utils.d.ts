@@ -1,4 +1,18 @@
 import * as jose from 'jose';
+export interface UserInfo {
+    email?: string;
+    name?: string;
+    groups?: string[];
+    /** user ID */
+    user?: string;
+    /** custom claims */
+    [claim: string]: unknown;
+}
+export declare const getBrowserUser: () => Promise<UserInfo>;
+/**
+ * @deprecated Only supported by Pomerium v0.26 and older. Newer deployments
+ * should use {@link getBrowserUser} instead.
+ */
 export declare const getClientJwt: () => Promise<string>;
 export declare const parseJWT: (token: string) => jose.JWTPayload;
 export declare const getJWKsData: (baseUrl: string) => Promise<jose.JSONWebKeySet>;
