@@ -75,6 +75,6 @@ export class PomeriumVerifier {
       return false;
     }
     const currentDateInSeconds = new Date().getTime() / 1000;
-    return exp < (currentDateInSeconds + this.expirationBuffer)
+    return currentDateInSeconds < (exp + this.expirationBuffer);
   }
 }
