@@ -2,29 +2,21 @@
   "name": "@pomerium/js-sdk",
   "version": "1.1.0",
   "description": "Verify and Parse Pomerium JWTs",
+  "type": "module",
   "exports": {
     ".": {
-      "import": {
-        "types": "./lib/esm/types/index.d.ts",
-        "default": "./lib/esm/index.mjs"
-      },
-      "require": {
-        "types": "./lib/cjs/types/index.d.ts",
-        "default": "./lib/cjs/index.js"
-      }
+      "types": "./lib/esm/types/index.d.ts",
+      "default": "./lib/esm/index.mjs"
     }
   },
   "types": "./lib/esm/types/index.d.ts",
-  "main": "./lib/esm/index.js",
-  "module": "./lib/esm/index.mjs",
+  "main": "./lib/esm/index.mjs",
   "files": [
     "lib/**/*"
   ],
   "scripts": {
     "clean": "rm -rf ./lib",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
-    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "build": "npm run clean && tsc -p ./configs/tsconfig.base.json && mv lib/esm/index.js lib/esm/index.mjs",
     "prepack": "npm run build",
     "pretty": "prettier --write \"src/**/*.ts\""
   },
