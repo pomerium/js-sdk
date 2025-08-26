@@ -47,7 +47,7 @@
     "pomerium"
   ],
   "author": "Nathan Hayfield",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "prettier": "^3.2.4",
     "ts-node": "^10.9.2",
