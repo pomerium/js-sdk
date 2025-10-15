@@ -16,8 +16,8 @@ export declare class PomeriumVerifier {
      * @deprecated Only supported by Pomerium v0.26 and older. Newer deployments
      * should use {@link getBrowserUser} instead.
      */
-    verifyBrowserUser(): Promise<jose.JWTVerifyResult<jose.JWTPayload> & jose.ResolvedKey<jose.KeyLike>>;
-    verifyJwt(jwt: string): Promise<jose.JWTVerifyResult<jose.JWTPayload> & jose.ResolvedKey<jose.KeyLike>>;
+    verifyBrowserUser(): Promise<jose.JWTVerifyResult & jose.ResolvedKey<jose.KeyLike>>;
+    verifyJwt(jwt: string): Promise<jose.JWTVerifyResult & jose.ResolvedKey<jose.KeyLike>>;
     tofu(): void;
     audToArray(aud: string | string[]): string[];
     isLoggedIn(): boolean;
