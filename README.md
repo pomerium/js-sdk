@@ -32,7 +32,7 @@ In node you will want to verify the X-Pomerium-Jwt-Assertion header:
 jwtVerifier.verifyJwt(jwt).then((r) => console.log(r));
 ```
 
-See the /examples directory for Express and React samples.
+See the /examples directory for Express, React, and TypeScript MCP Server samples.
 
 Using the verifier class is the easiest way to verify your JWT. However the class itself uses the functions
 in util.js which are also exported. One useful function there is the logout one which will log you out from the browser.
