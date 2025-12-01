@@ -55,6 +55,6 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "jose": "^4.15.5"
+    "jose": "^6.1.2"
   }
 }
