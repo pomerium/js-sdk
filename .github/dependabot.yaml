@@ -16,3 +16,19 @@ updates:
       npm:
         patterns:
           - '*'
+  - package-ecosystem: 'npm'
+    directory: 'examples/express/'
+    schedule:
+      interval: 'monthly'
+    groups:
+      npm:
+        patterns:
+          - '*'
+  - package-ecosystem: 'npm'
+    directory: 'examples/react-app/'
+    schedule:
+      interval: 'monthly'
+    groups:
+      npm:
+        patterns:
+          - '*'
