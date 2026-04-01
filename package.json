@@ -52,7 +52,7 @@
   "devDependencies": {
     "prettier": "^3.2.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^6.0.2"
   },
   "dependencies": {
     "jose": "^6.1.3"
