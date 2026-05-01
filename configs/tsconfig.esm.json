@@ -5,6 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "target": "ESNext",
+    "rootDir": "../src",
     "outDir": "../lib/esm",
     "declarationDir": "../lib/esm/types"
   }

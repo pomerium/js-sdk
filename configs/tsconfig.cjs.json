@@ -5,6 +5,8 @@
     "target": "ES6",
     "module": "CommonJS",
     "moduleResolution": "Node",
+    "ignoreDeprecations": "6.0",
+    "rootDir": "../src",
     "outDir": "../lib/cjs",
     "declarationDir": "../lib/cjs/types"
   }
