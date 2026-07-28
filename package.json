@@ -43,6 +43,7 @@
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
     "prepack": "npm run build",
     "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
     "lint": "oxlint ."
   },
   "dependencies": {
