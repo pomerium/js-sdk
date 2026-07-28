@@ -1,26 +1,28 @@
 # Pomerium Javascript SDK
+
 An easy way to verify and parse Pomerium's JWT.
 
 Getting Started
-```yarn add @pomerium/js-sdk```
+`yarn add @pomerium/js-sdk`
 
 Basic Usage:
 
 ```
 const jwtVerifier = new PomeriumVerifier({
-    issuer: 'myauthenticate.com', 
+    issuer: 'myauthenticate.com',
     audience: [
       'mydomain.com'
-    ], 
+    ],
     expirationBuffer: 20
 });
 ```
-The parameters are optional. Issuer and Audience can be trusted on first use from parsing the JWT. 
 
-ExpirationBuffer is used to add padding in seconds to prevent throwing errors for expired JWTs that 
+The parameters are optional. Issuer and Audience can be trusted on first use from parsing the JWT.
+
+ExpirationBuffer is used to add padding in seconds to prevent throwing errors for expired JWTs that
 may have differing server times. It defaults to 0.
 
-For browsers: 
+For browsers:
 
 ```
 getBrowserUser().then((r) => console.log(r));

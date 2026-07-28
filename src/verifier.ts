@@ -1,5 +1,6 @@
-import { getBrowserUser, getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from './utils.js';
-import * as jose from 'jose';
+import * as jose from "jose";
+
+import { getClientJwt, parseJWT, verifyPomeriumJWT, withHttps } from "./utils.js";
 
 export interface verifierConfig {
   issuer?: string;
@@ -15,7 +16,7 @@ export class PomeriumVerifier {
   public jwtData: jose.JWTPayload;
   public verifiedJwtData: jose.JWTPayload;
 
-  constructor({ issuer = '', audience = [], expirationBuffer = 0 }: verifierConfig) {
+  constructor({ issuer = "", audience = [], expirationBuffer = 0 }: verifierConfig) {
     this.issuer = issuer;
     this.audience = Array.isArray(audience) ? audience : [audience];
     this.expirationBuffer = expirationBuffer;
@@ -42,23 +43,30 @@ export class PomeriumVerifier {
     }
 
     if (this.jwtData?.iss !== this.issuer) {
-      throw new Error('JWT was not issued by the correct authority: ' + this.issuer);
+      throw new Error("JWT was not issued by the correct authority: " + this.issuer);
     }
-    if (!this.audience.some((item) => this.audToArray(this.jwtData?.aud || []).indexOf(item) > -1)) {
-      throw new Error('The audience did not match expected value(s): ' + this.audience.join(', '));
+    if (
+      !this.audience.some((item) => this.audToArray(this.jwtData?.aud || []).indexOf(item) > -1)
+    ) {
+      throw new Error("The audience did not match expected value(s): " + this.audience.join(", "));
     }
 
-    const verified = await verifyPomeriumJWT(jwt, withHttps(this.issuer), this.issuer, this.audience);
+    const verified = await verifyPomeriumJWT(
+      jwt,
+      withHttps(this.issuer),
+      this.issuer,
+      this.audience,
+    );
     this.verifiedJwtData = verified.payload;
-    if (!this.isLoggedIn()){
-      throw new Error('The jwt is expired!');
+    if (!this.isLoggedIn()) {
+      throw new Error("The jwt is expired!");
     }
     return verified;
   }
 
   tofu() {
     if (!this.issuer) {
-      this.issuer = this.jwtData?.iss || '';
+      this.issuer = this.jwtData?.iss || "";
     }
     if (!this.audience?.length) {
       this.audience = this.audToArray(this.jwtData?.aud || []);
@@ -75,6 +83,6 @@ export class PomeriumVerifier {
       return false;
     }
     const currentDateInSeconds = new Date().getTime() / 1000;
-    return currentDateInSeconds < (exp + this.expirationBuffer);
+    return currentDateInSeconds < exp + this.expirationBuffer;
   }
 }
