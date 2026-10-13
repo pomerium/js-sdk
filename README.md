@@ -47,7 +47,9 @@ Releases are automated with [release-please](https://github.com/googleapis/relea
 2. release-please opens or updates a release PR that bumps `version` in `package.json` and updates `CHANGELOG.md`.
 3. Merging the release PR creates the `vX.Y.Z` tag and GitHub release, then publishes the package to npm via [Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC, no npm token) with a [provenance statement](https://docs.npmjs.com/generating-provenance-statements/).
 
-To release a specific version, such as a prerelease, add a `Release-As: 1.3.0-beta.1` footer to a commit message. Prerelease versions are published under the `next` dist-tag instead of `latest`.
+To release a specific version, such as a prerelease, add a `Release-As: 1.3.0-beta.1` footer to a commit message. Prerelease versions are marked as pre-releases on GitHub and published under the `next` dist-tag instead of `latest`.
+
+release-please keeps the prerelease suffix on later releases (e.g. `1.3.0-beta.1` → `1.3.1-beta.1`). To go back to a stable version, add a `Release-As: 1.3.0` footer.
 
 ### Prerequisites
 
