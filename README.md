@@ -47,5 +47,6 @@ To release:
 
 1. Bump `version` in `package.json` (e.g. `npm version minor --no-git-tag-version`) and merge it to `main`.
 2. Create a GitHub release with a tag matching the version, prefixed with `v` (e.g. `v1.3.0`).
+   Mark it as a pre-release on GitHub for prerelease versions (e.g. `v1.3.0-beta.1`); they are published under the `next` dist-tag instead of `latest`.
 
 Publishing the release triggers the [publish workflow](.github/workflows/publish.yml), which publishes to npm via [Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC, no npm token) with a [provenance statement](https://docs.npmjs.com/generating-provenance-statements/).

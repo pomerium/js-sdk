@@ -60,6 +60,5 @@ jobs:
       - name: Install
         run: npm ci --ignore-scripts
 
-      # Runs the same `prepack` build that `npm publish` uses and lists the packaged files
       - name: Pack
         run: npm pack --dry-run
