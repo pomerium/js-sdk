@@ -30,5 +30,10 @@ jobs:
 
       - name: Publish
         env:
-          NPM_DIST_TAG: ${{ github.event.release.prerelease && 'next' || 'latest' }}
-        run: npm publish --tag "$NPM_DIST_TAG"
+          PRERELEASE: ${{ github.event.release.prerelease }}
+        run: |
+          if [ "$PRERELEASE" = "true" ]; then
+            npm publish --tag next
+          else
+            npm publish
+          fi
