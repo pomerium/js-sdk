@@ -41,10 +41,19 @@ in util.js which are also exported. One useful function there is the logout one 
 
 ## Releasing
 
-To release:
+Releases are automated with [release-please](https://github.com/googleapis/release-please) in the [release workflow](.github/workflows/release.yaml).
 
-1. Bump `version` in `package.json` (e.g. `npm version minor --no-git-tag-version`) and merge it to `main`.
-2. Create a GitHub release with a tag matching the version, prefixed with `v` (e.g. `v1.3.0`).
-   Mark it as a pre-release on GitHub for prerelease versions (e.g. `v1.3.0-beta.1`); they are published under the `next` dist-tag instead of `latest`.
+1. Merge changes to `main` using [conventional commits](https://www.conventionalcommits.org/) (e.g. `fix:`, `feat:`, `feat!:`).
+2. release-please opens or updates a release PR that bumps `version` in `package.json` and updates `CHANGELOG.md`.
+3. Merging the release PR creates the `vX.Y.Z` tag and GitHub release, then publishes the package to npm via [Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC, no npm token) with a [provenance statement](https://docs.npmjs.com/generating-provenance-statements/).
 
-Publishing the release triggers the [publish workflow](.github/workflows/publish.yml), which publishes to npm via [Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC, no npm token) with a [provenance statement](https://docs.npmjs.com/generating-provenance-statements/).
+To release a specific version, such as a prerelease, add a `Release-As: 1.3.0-beta.1` footer to a commit message. Prerelease versions are marked as pre-releases on GitHub and published under the `next` dist-tag instead of `latest`.
+
+release-please keeps the prerelease suffix on later releases (e.g. `1.3.0-beta.1` → `1.3.1-beta.1`). To go back to a stable version, add a `Release-As: 1.3.0` footer.
+
+### Prerequisites
+
+1. **npm Trusted Publisher** must be configured by an npm org admin at `https://www.npmjs.com/package/@pomerium/js-sdk/access`:
+   - Select **GitHub Actions** as the trusted publisher.
+   - Set **Organization** to `pomerium`, **Repository** to `js-sdk`, **Workflow** to `release.yaml`, and **Environment** to `npm-publish`.
+2. **GitHub Environment:** the publish job always runs in the `npm-publish` environment, which must match the Trusted Publisher setting above. Optionally, add required reviewers to it in the repository settings to require manual approval before publishing.
