@@ -53,10 +53,5 @@
     "oxfmt": "^0.70.0",
     "oxlint": "^1.76.0",
     "typescript": "^7.0.2"
-  },
-  "release": {
-    "branches": [
-      "main"
-    ]
   }
 }
